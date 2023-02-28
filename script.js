@@ -9,6 +9,7 @@ let intervelID = null;
 
 let count = 1;
 function startTimer() {
+function startTimer() {
   if (!intervelID) {
     intervelID = setInterval(() => {
       if (minutes === 60) {
@@ -32,15 +33,23 @@ function startTimer() {
           : millisec < 100
           ? "0" + millisec
           : millisec
+        millisec < 10
+          ? "00" + millisec
+          : millisec < 100
+          ? "0" + millisec
+          : millisec
       }`;
     }, 10);
   }
+}
 }
 function pauseTimer() {
   if (intervelID) {
     clearInterval(intervelID);
     intervelID = null;
   }
+}
+function resetTimer() {
 }
 function resetTimer() {
   if (intervelID) {
